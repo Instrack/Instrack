@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Repository extends Model
+class Task extends Model
 {
     use HasFactory;
 
@@ -14,8 +14,13 @@ class Repository extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Issue()
+    public function Roadmap()
     {
-        return $this->hasMany(Issue::class);
+        return $this->belongsTo(Roadmap::class);
+    }
+
+    public function Team()
+    {
+        return $this->belongsTo(Team::class);
     }
 }

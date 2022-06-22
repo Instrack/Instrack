@@ -18,6 +18,41 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function Team()
+    {
+        return $this->belongsToMany(Team::class);
+    }
+
+    public function Repository()
+    {
+        return $this->hasMany(Repository::class);
+    }
+
+    public function Release()
+    {
+        return $this->hasMany(Release::class);
+    }
+
+    public function Project()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function Issue()
+    {
+        return $this->hasMany(Issue::class);
+    }
+
+    public function Group()
+    {
+        return $this->belongsToMany(Group::class);
+    }
+
+    public function Tag()
+    {
+        return $this->hasMany(Tag::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

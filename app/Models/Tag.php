@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Repository()
+    {
+        return $this->belongsToMany(Repository::class);
+    }
 }
