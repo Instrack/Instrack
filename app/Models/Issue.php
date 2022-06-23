@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Issue extends Model
 {
     use HasFactory;
+
+    public function Repository()
+    {
+        return $this->belongsTo(Repository::class);
+    }
 }

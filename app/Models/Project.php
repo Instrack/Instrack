@@ -9,8 +9,8 @@ class Project extends Model
 {
     use HasFactory;
 
-//    public function User()
-//    {
-//
-//    }
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
