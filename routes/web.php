@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Issues;
 use App\Http\Controllers\Repositories;
 use App\Http\Controllers\Teams;
 use App\Http\Controllers\User;
@@ -12,6 +13,8 @@ Route::get('/', function () {
 Route::get('/profile/{username}', [User::class, 'profile'])->name('profile');
 
 Route::get('/teams', [Teams::class, 'view'])->name('teams');
+
+Route::get('/issues', [Issues::class, 'view'])->name('issues');
 
 Route::get('/repositories', [Repositories::class, 'view'])->name('repositories');
 
