@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('repositories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->longText('link')->nullable(false);
+            $table->integer('user_id')->nullable(false);
             $table->timestamps();
         });
     }
