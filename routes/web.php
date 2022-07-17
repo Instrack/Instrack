@@ -1,21 +1,19 @@
 <?php
 
+use App\Http\Controllers\Repositories;
+use App\Http\Controllers\Teams;
+use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('home');
 })->middleware('guest')->name('home');
+
+Route::get('/profile/{username}', [User::class, 'profile'])->name('profile');
+
+Route::get('/teams', [Teams::class, 'view'])->name('teams');
+
+Route::get('/repositories', [Repositories::class, 'view'])->name('repositories');
 
 Route::middleware([
     'auth:sanctum',
