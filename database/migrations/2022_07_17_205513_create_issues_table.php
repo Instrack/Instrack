@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('issues', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->longText('description')->nullable(false);
+            $table->integer('user_id')->nullable(false);
+            $table->integer('repository_id')->nullable(false);
             $table->timestamps();
         });
     }
