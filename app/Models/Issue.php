@@ -13,4 +13,9 @@ class Issue extends Model
     {
         return $this->belongsTo(Repository::class);
     }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
