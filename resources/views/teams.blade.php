@@ -132,7 +132,10 @@
 
                         <a href="{{route('profile.show')}}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
 
-                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</button>
+                        </form>
                     </div>
                 </div>
             </div>
