@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('link')->nullable(false);
             $table->integer('user_id')->nullable(false);
+            $table->string('vcs')->nullable(false);
             $table->timestamps();
         });
     }
