@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Repository;
 use Illuminate\Http\Request;
 
 class Repositories extends Controller
@@ -11,8 +12,10 @@ class Repositories extends Controller
         return view('repositories');
     }
 
-    public function get()
+    public function get($slug)
     {
-
+        return view('repositories.manage', [
+            Repository::query()->where('repositories.slug')->get()
+        ]);
     }
 }

@@ -18,6 +18,7 @@ Route::get('/teams', [Teams::class, 'view'])->name('teams')->middleware('auth');
 Route::get('/issues', [Issues::class, 'view'])->name('issues')->middleware('auth');
 
 Route::get('/repositories', [Repositories::class, 'view'])->name('repositories')->middleware('auth');
+Route::get('/repositories/{slug}', [Repositories::class, 'get'])->name('repositories.manage')->middleware('auth');
 
 Route::get('/projects', [Projects::class, 'view'])->name('projects')->middleware('auth');
 Route::get('/projects/{slug}', [Projects::class, 'details'])->name('projects.details')->middleware('auth');

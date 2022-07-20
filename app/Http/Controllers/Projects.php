@@ -13,6 +13,6 @@ class Projects extends Controller
 
     public function details($slug)
     {
-        return view('/projects/details');
+        return view('projects.details');
     }
 }
