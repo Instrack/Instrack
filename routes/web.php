@@ -20,6 +20,7 @@ Route::get('/issues', [Issues::class, 'view'])->name('issues');
 Route::get('/repositories', [Repositories::class, 'view'])->name('repositories');
 
 Route::get('/projects', [Projects::class, 'view'])->name('projects');
+Route::get('/projects/{slug}', [Projects::class, 'details'])->name('projects.details');
 
 Route::middleware([
     'auth:sanctum',

@@ -10,4 +10,9 @@ class Projects extends Controller
     {
         return view('projects');
     }
+
+    public function details($slug)
+    {
+        return view('/projects/details');
+    }
 }

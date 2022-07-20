@@ -154,7 +154,7 @@
                     <ul role="list" class="divide-y divide-gray-200">
                         @foreach(auth()->user()->Project()->get() as $p)
                         <li>
-                            <a href="#" class="block hover:bg-gray-50">
+                            <a href="{{route('projects.details', $p->slug)}}" class="block hover:bg-gray-50">
                                 <div class="px-4 py-4 sm:px-6">
                                     <div class="flex items-center justify-between">
                                         <p class="text-sm font-medium text-indigo-600 truncate">{{$p->name}}</p>
