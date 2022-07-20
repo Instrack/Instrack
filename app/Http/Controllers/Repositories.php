@@ -15,7 +15,7 @@ class Repositories extends Controller
     public function get($slug)
     {
         return view('repositories.manage', [
-            Repository::query()->where('repositories.slug')->get()
+            'repo' => Repository::query()->where('repositories.slug', $slug)->firstOrFail()
         ]);
     }
 }
