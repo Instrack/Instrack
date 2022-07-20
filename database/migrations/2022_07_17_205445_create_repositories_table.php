@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->longText('link')->nullable(false);
+            $table->string('slug')->unique()->nullable(false);
             $table->integer('user_id')->nullable(false);
             $table->string('vcs')->nullable(false);
             $table->timestamps();
