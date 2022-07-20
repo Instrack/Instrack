@@ -239,8 +239,8 @@
                                             <div class="hidden md:block">
                                                 <div>
                                                     <p class="text-sm text-gray-900">
-                                                        Applied on
-                                                        <time datetime="2020-01-07">January 7, 2020</time>
+                                                        Opened on
+                                                        <time datetime="2020-01-07">{{$i->created_at}}</time>
                                                     </p>
                                                     <p class="mt-2 flex items-center text-sm text-gray-500">
                                                         <!-- Heroicon name: solid/check-circle -->
