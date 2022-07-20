@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('roadmaps', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('description');
+            $table->integer('user_id')->nullable(false);
+            $table->integer('project_id')->nullable(false);
             $table->timestamps();
         });
     }
