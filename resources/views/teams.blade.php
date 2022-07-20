@@ -152,33 +152,41 @@
         <main>
             <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                 <!-- Replace with your content -->
-                <div class="md:flex md:items-center md:justify-between">
+                @foreach(auth()->user()->Team()->get() as $t)
+                <div class="md:flex pt-5 md:items-center md:justify-between">
                     <div class="flex-1 min-w-0">
-                        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Back end developers</h2>
+                        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">{{$t->name}}</h2>
                     </div>
                     <div class="mt-4 flex md:mt-0 md:ml-4">
-                        <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</button>
-                        <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Publish</button>
+                        <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Settings</button>
+                        <button type="button" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Manage</button>
                     </div>
                 </div>
                 <!-- This example requires Tailwind CSS v2.0+ -->
                 <ul role="list" class=" pt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    @foreach($t->User as $u)
                     <li class="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
                         <div class="w-full flex items-center justify-between p-6 space-x-6">
                             <div class="flex-1 truncate">
                                 <div class="flex items-center space-x-3">
-                                    <h3 class="text-gray-900 text-sm font-medium truncate">Jane Cooper</h3>
-                                    <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">Admin</span>
+                                    <h3 class="text-gray-900 text-sm font-medium truncate">{{$u->name}}</h3>
+{{--                                    <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">Owner</span>--}}
                                 </div>
-                                <p class="mt-1 text-gray-500 text-sm truncate">Regional Paradigm Technician</p>
+                                @switch($u->hasVerifiedEmail())
+                                    @case(1)
+                                <p class="mt-1 text-green-500 text-sm truncate">Verified</p>
+                                    @break
+                                    @case(0)
+                                <p class="mt-1 text-red-500 text-sm truncate">Not verified</p>
+                                    @break
+                                @endswitch
                             </div>
                             <img class="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
                         </div>
                         <div>
                             <div class="-mt-px flex divide-x divide-gray-200">
                                 <div class="w-0 flex-1 flex">
-                                    <a href="mailto:janecooper@example.com" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
-                                        <!-- Heroicon name: solid/mail -->
+                                    <a href="mailto:{{$u->email}}" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
                                         <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -198,9 +206,11 @@
                             </div>
                         </div>
                     </li>
+                    @endforeach
 
                     <!-- More people... -->
                 </ul>
+                @endforeach
 
                 <!-- /End replace -->
             </div>
