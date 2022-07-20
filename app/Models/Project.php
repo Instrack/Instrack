@@ -13,4 +13,14 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function Roadmap()
+    {
+        return $this->hasMany(Roadmap::class);
+    }
+
+    public function Task()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

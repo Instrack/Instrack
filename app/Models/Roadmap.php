@@ -9,9 +9,9 @@ class Roadmap extends Model
 {
     use HasFactory;
 
-    public function Team()
+    public function Project()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Project::class);
     }
 
     public function User()

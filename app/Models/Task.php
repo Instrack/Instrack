@@ -19,8 +19,8 @@ class Task extends Model
         return $this->belongsTo(Roadmap::class);
     }
 
-    public function Team()
+    public function Project()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Project::class);
     }
 }
