@@ -22,6 +22,7 @@ Route::get('/repositories/{slug}', [Repositories::class, 'get'])->name('reposito
 
 Route::get('/projects', [Projects::class, 'view'])->name('projects')->middleware('auth');
 Route::get('/projects/{slug}', [Projects::class, 'details'])->name('projects.details')->middleware('auth');
+Route::get('/projects/{slug}/roadmap', [Projects::class, 'roadmap'])->name('projects.roadmap')->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

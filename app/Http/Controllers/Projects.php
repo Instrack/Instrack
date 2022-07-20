@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class Projects extends Controller
@@ -13,6 +14,13 @@ class Projects extends Controller
 
     public function details($slug)
     {
-        return view('projects.details');
+        return view('projects.details', [
+            'project' => Project::query()->where('projects.slug', $slug)->firstOrFail()
+        ]);
+    }
+
+    public function roadmap($slug)
+    {
+
     }
 }
